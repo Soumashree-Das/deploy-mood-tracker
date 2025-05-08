@@ -8,7 +8,7 @@ import JournalRouters from "./src/routes/journalEntry.routes.js";
 const app = express();
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://deploy-mood-tracker.vercel.app/');
+    res.header('Access-Control-Allow-Origin', 'https://deploy-mood-tracker.vercel.app');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.header('Access-Control-Allow-Credentials', 'true');
@@ -16,7 +16,7 @@ app.use((req, res, next) => {
   });
 
 app.use(cors({
-    origin:'https://deploy-mood-tracker.vercel.app/',
+    origin:'*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials:true
 }))
