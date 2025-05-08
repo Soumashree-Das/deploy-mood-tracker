@@ -7,13 +7,18 @@ import JournalRouters from "./src/routes/journalEntry.routes.js";
 
 const app = express();
 
-app.use(cors({
-    origin:'https://deploy-mood-tracker.vercel.app',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials:true
-}))
+// app.use(cors({
+//     origin:'https://deploy-mood-tracker.vercel.app',
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     credentials:true
+// }))
 
-// app.options("*", cors()); // enable pre-flight for all routes
+// Handle OPTIONS requests for all routes
+app.options('*', cors({
+    origin: 'https://deploy-mood-tracker.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
 
 app.use(express.json());
 app.use("/user",UserRouter);
