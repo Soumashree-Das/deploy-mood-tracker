@@ -18,7 +18,7 @@ function RegisterUser() {
     axios.post('https://deploy-mood-tracker.onrender.com/user/register', formData)
       .then(result => {
         alert("Registratin successful!🥳 please login to continue!");
-        console.log("Registration successful:", result.data);
+        // console.log("Registration successful:", result.data);
         navigate('/login')
          // redirect after successful registration
       })

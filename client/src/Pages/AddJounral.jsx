@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../CSS/AddJournal.css';
@@ -209,7 +205,7 @@ function AddJournal() {
         }
       });
 
-      console.log('Journal entry saved:', response.data);
+      // console.log('Journal entry saved:', response.data);
       alert('Journal entry saved successfully!');
       
       // Reset form
