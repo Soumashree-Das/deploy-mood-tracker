@@ -3,31 +3,94 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function RegisterUser() {
+  // const [formData, setFormData] = React.useState({
+  //   name: '',
+  //   email: '',
+  //   password: '',
+  //   phoneNumber: ''
+  // });
+
+  // const navigate = useNavigate();
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Submitting form data:", formData);
+  //   axios.post('https://deploy-mood-tracker.onrender.com/user/register', formData)
+  //     .then(result => {
+  //       alert("Registratin successful!🥳 please login to continue!");
+  //       // console.log("Registration successful:", result.data);
+  //       navigate('/login')
+  //        // redirect after successful registration
+  //     })
+  //     .catch(err => {
+  //       console.error("Registration failed:", err.response?.data || err.message);
+  //       alert(err.response?.data?.message || "Registration failed");
+
+  //       //bug: if user already exists, redirect to login page
+  //       // if(response.error.message==='User already exists. Please login to continue!')navigate('/login');
+  //     });
+
   const [formData, setFormData] = React.useState({
     name: '',
     email: '',
-    password: '',
-    phoneNumber: ''
+    password: ''
+  });
+
+  const [errors, setErrors] = React.useState({
+    email: ''
   });
 
   const navigate = useNavigate();
 
+  // Email validation function
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+
+    // Validate email in real-time
+    if (name === 'email') {
+      setErrors(prev => ({
+        ...prev,
+        email: validateEmail(value) ? '' : 'Please enter a valid email address'
+      }));
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitting form data:", formData);
+    
+    // Final validation before submission
+    if (!validateEmail(formData.email)) {
+      setErrors(prev => ({
+        ...prev,
+        email: 'Please enter a valid email address'
+      }));
+      return;
+    }
+
+    // console.log("Submitting form data:", formData);
     axios.post('https://deploy-mood-tracker.onrender.com/user/register', formData)
       .then(result => {
-        alert("Registratin successful!🥳 please login to continue!");
-        // console.log("Registration successful:", result.data);
-        navigate('/login')
-         // redirect after successful registration
+        alert("Registration successful! 🥳 Please login to continue!");
+        navigate('/login');
       })
       .catch(err => {
         console.error("Registration failed:", err.response?.data || err.message);
-        alert(err.response?.data?.message || "Registration failed");
-
-        //bug: if user already exists, redirect to login page
-        // if(response.error.message==='User already exists. Please login to continue!')navigate('/login');
+        
+        if (err.response?.data?.message === 'User already exists. Please login to continue!') {
+          alert('User already exists. Please login to continue!');
+          navigate('/login');
+        } else {
+          alert(err.response?.data?.message || "Registration failed");
+        }
       });
   };
 
