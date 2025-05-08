@@ -66,34 +66,47 @@ function RegisterUser() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    // Final validation before submission
-    if (!validateEmail(formData.email)) {
-      setErrors(prev => ({
-        ...prev,
-        email: 'Please enter a valid email address'
-      }));
-      return;
-    }
+  e.preventDefault();
 
-    // console.log("Submitting form data:", formData);
-    axios.post('https://deploy-mood-tracker.onrender.com/user/register', formData)
-      .then(result => {
-        alert("Registration successful! 🥳 Please login to continue!");
-        navigate('/login');
-      })
-      .catch(err => {
-        console.error("Registration failed:", err.response?.data || err.message);
-        
-        if (err.response?.data?.message === 'User already exists. Please login to continue!') {
-          alert('User already exists. Please login to continue!');
-          navigate('/login');
-        } else {
-          alert(err.response?.data?.message || "Registration failed");
-        }
-      });
+  // Prepare data: ensure email and phoneNumber are empty strings if missing
+  const dataToSend = {
+    name: formData.name.trim(),
+    email: formData.email ? formData.email.trim() : "",
+    password: formData.password,
+    phoneNumber: formData.phoneNumber ? formData.phoneNumber.trim() : ""
   };
+
+  // Require at least one of email or phoneNumber
+  if (dataToSend.email === "" && dataToSend.phoneNumber === "") {
+    alert("Please enter either an email or a phone number.");
+    return;
+  }
+
+  // Validate email format if provided
+  if (dataToSend.email !== "" && !validateEmail(dataToSend.email)) {
+    setErrors(prev => ({
+      ...prev,
+      email: 'Please enter a valid email address'
+    }));
+    return;
+  }
+
+  axios.post('https://deploy-mood-tracker.onrender.com/user/register', dataToSend)
+    .then(result => {
+      alert("Registration successful! 🥳 Please login to continue!");
+      navigate('/login');
+    })
+    .catch(err => {
+      console.error("Registration failed:", err.response?.data || err.message);
+      if (err.response?.data?.message === 'User already exists. Please login to continue!') {
+        alert('User already exists. Please login to continue!');
+        navigate('/login');
+      } else {
+        alert(err.response?.data?.message || "Registration failed");
+      }
+    });
+};
+
 
 
   return (
