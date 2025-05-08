@@ -114,7 +114,7 @@ const MoodDashboard = () => {
 
       try {
         // Fetch mood data from backend
-        const response = await fetch(`http://localhost:8080/journal/mood-data`, {
+        const response = await fetch(`https://deploy-mood-tracker.onrender.com/journal/mood-data`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
@@ -140,7 +140,7 @@ const MoodDashboard = () => {
           setHasEnoughData(true);
           
           // Fetch mood frequency data
-          const freqResponse = await fetch('http://localhost:8080/journal/mood-frequency', {
+          const freqResponse = await fetch('https://deploy-mood-tracker.onrender.com/journal/mood-frequency', {
             headers: {
               'Authorization': `Bearer ${localStorage.getItem('token')}`
             }

@@ -8,7 +8,7 @@ import JournalRouters from "./src/routes/journalEntry.routes.js";
 const app = express();
 
 app.use(cors({
-    origin:'https://deploy-mood-tracker.vercel.app/',
+    origin:'https://deploy-mood-tracker.vercel.app',
     credentials:true
 }))
 
