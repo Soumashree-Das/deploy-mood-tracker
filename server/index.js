@@ -1,7 +1,8 @@
 import express from "express";
 import connectDB from "./src/db/db.index.js";
 import cors from "cors";
-
+import { configDotenv } from "dotenv";
+configDotenv();
 import UserRouter from "./src/routes/user.route.js";
 import JournalRouters from "./src/routes/journalEntry.routes.js";
 
@@ -16,7 +17,7 @@ app.use((req, res, next) => {
   });
 
 app.use(cors({
-    origin:'*',
+    origin:process.env.CORS_ORIGIN,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials:true
 }))
