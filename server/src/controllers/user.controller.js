@@ -19,8 +19,6 @@ if ((!email || email.trim() === "") && (!phoneNumber || phoneNumber.trim() === "
   return res.status(400).json({ statusCode: 400, message: "Either email or phone number is required!" });
 }
 
-
-
   if (!/^\d{10}$/.test(phoneNumber)) {
     return res.status(400).json({ statusCode: 400, message: "Phone number must be 10 digits!" });
   }
