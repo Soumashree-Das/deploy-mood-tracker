@@ -165,7 +165,7 @@ export const registerUser = async (req, res) => {
     const newUser = new userModel({ name, email, password: hashPassword, phoneNumber });
     await newUser.save();
 
-    return res.status(200).json({ message: "User successfully registered!", user: newUser });
+    return res.status(200).json({ message: "User successfully registered!"});
   } catch (e) {
     return res.status(500).json({ error: e });
   }
@@ -191,7 +191,7 @@ export const loginUser = async (req, res) => {
 
     const token = generateToken(user._id);
 
-    return res.status(200).json({ message: "User successfully logged in!", user, token });
+    return res.status(200).json({ message: "User successfully logged in!"});
   } catch (e) {
     return res.status(500).json({ error: e });
   }
