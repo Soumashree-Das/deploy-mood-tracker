@@ -8,7 +8,7 @@ const ACCESS_TOKEN_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '15m';
 const REFRESH_TOKEN_EXPIRES_IN = process.env.REFRESH_TOKEN_EXPIRES_IN || '7d';
 
 // Generate both tokens with user details
-export const generateTokens = (user) => {  // Accept full user object
+export const generateToken = (user) => {  // Accept full user object
   const payload = {
     id: user._id,       // Use MongoDB's _id field
     name: user.name,
