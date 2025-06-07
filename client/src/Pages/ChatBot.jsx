@@ -31,7 +31,7 @@ const ChatApp = () => {
 
   return (
     <>
-      <div className="chat-box h-screen w-screen bg-[url('/AI-chatbot.webp')] bg-no-repeat bg-cover bg-center min-h-screen "
+      <div className="chat-box h-screen w-screen bg-[url('./assets/AI-chatbot.webp')] bg-no-repeat bg-cover bg-center min-h-screen "
         // style={{ backgroundImage: `url('./assets/AI-chatbot.webp')` }}
         >
         {messages.map((msg, i) => (
