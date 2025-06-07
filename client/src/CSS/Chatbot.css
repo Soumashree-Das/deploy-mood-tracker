@@ -23,7 +23,7 @@ body > * {
   flex-direction: column;
   /* background-image: image("C:/Users/Soumashree/Documents/MY_PROJECTS/mood-journal-app/mood-tracker/client/src/assets/AI-chatbot.webp"); */
   /* height: 100%; */
-  background-image: url("C:/Users/Soumashree/Documents/MY_PROJECTS/mood-journal-app/mood-tracker/client/src/assets/AI-chatbot.webp");
+  /* background-image: url("C:/Users/Soumashree/Documents/MY_PROJECTS/mood-journal-app/mood-tracker/client/src/assets/AI-chatbot.webp"); */
   background-size: cover;         /* This ensures the image covers the full container */
   background-repeat: no-repeat;   /* Prevents the image from repeating */
   background-position: center;
