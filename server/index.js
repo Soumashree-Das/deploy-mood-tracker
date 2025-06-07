@@ -5,7 +5,7 @@ import { configDotenv } from "dotenv";
 configDotenv();
 import UserRouter from "./src/routes/user.route.js";
 import JournalRouters from "./src/routes/journalEntry.routes.js";
-import chatRouters from "./src/controllers/chatbot.js"
+import chatRouters from "./src/routes/chatbot.routes.js"
 
 const app = express();
 
@@ -35,7 +35,7 @@ app.use(cors({
 app.use(express.json());
 app.use("/user",UserRouter);
 app.use("/journal",JournalRouters);
-app.use("/chatbot",chatRouters);
+app.use("/c",chatRouters);
 
 connectDB().then(()=>{
     app.listen(process.env.PORT||9000 , () => {
