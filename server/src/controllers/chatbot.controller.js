@@ -23,7 +23,7 @@ export async function chatWithBot(prompt) {
 
     return completion.choices[0].message.content;
   } catch (error) {
-    console.error("OpenAI Error:", error.message);
+    console.error("OpenAI Error:", error);
     return "Sorry, I encountered an error.";
   }
 }
