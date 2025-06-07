@@ -1,0 +1,88 @@
+/* Make body and root take full height */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Make the main component (like ChatApp) take full height */
+:root {
+  --pink: #ffb6c1;
+  --blue: #d3f4f2;
+}
+
+h2 {
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+}
+
+/* Let the page fill height and place input at bottom */
+body > * {
+  display: flex;
+  flex-direction: column;
+  /* background-image: image("C:/Users/Soumashree/Documents/MY_PROJECTS/mood-journal-app/mood-tracker/client/src/assets/AI-chatbot.webp"); */
+  /* height: 100%; */
+  background-image: url("C:/Users/Soumashree/Documents/MY_PROJECTS/mood-journal-app/mood-tracker/client/src/assets/AI-chatbot.webp");
+  background-size: cover;         /* This ensures the image covers the full container */
+  background-repeat: no-repeat;   /* Prevents the image from repeating */
+  background-position: center;
+}
+
+/* Chat box expands and scrolls */
+.chat-box {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #fef9fa;
+  border-top: 2px solid var(--pink);
+  border-bottom: 2px solid var(--pink);
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+/* Input area stays fixed at bottom */
+.input-area {
+  display: flex;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: var(--blue);
+  border-top: 2px solid var(--pink);
+}
+
+.input-area input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  font-family: 'Courier New', monospace;
+}
+
+.input-area button {
+  padding: 10px 20px;
+  background-color: var(--pink);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* Message styling */
+.message.user {
+  background-color: #ffe1ed;
+  padding: 8px;
+  margin: 5px;
+  border-radius: 10px;
+  align-self: flex-end;
+}
+
+.message.bot {
+  background-color: #d7f8ff;
+  padding: 8px;
+  margin: 5px;
+  border-radius: 10px;
+  align-self: flex-start;
+}

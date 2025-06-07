@@ -88,6 +88,12 @@ function Navbar() {
                                         >
                                             Account
                                         </Link>
+                                        <Link 
+                                            to="/chatbot" 
+                                            className="text-[#42bfdd] hover:text-[#084b83] px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                                        >
+                                            Chatbot
+                                        </Link>
                                         <button 
                                             onClick={handleLogout} 
                                             className="bg-[#f0f6f6] hover:bg-[#bbe6e4] text-[#ff66b3] px-4 py-2 rounded-md text-sm font-medium transition-colors"
@@ -135,6 +141,13 @@ function Navbar() {
                                     onClick={() => setIsOpen(false)}
                                 >
                                     Account
+                                </Link>
+                                <Link 
+                                    to="/chatbot" 
+                                    className="block px-3 py-2 rounded-md text-base font-medium text-[#42bfdd] hover:text-[#084b83] hover:bg-[#bbe6e4] transition-colors"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    Chatbot 
                                 </Link>
                                 <button 
                                     onClick={() => {

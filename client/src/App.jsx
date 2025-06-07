@@ -8,6 +8,7 @@ import Navbar from './Components/Navbar.jsx';
 import Home from './Pages/Home.jsx';
 import AccountPage from './Pages/AccountPage.jsx';
 import { AuthProvider } from './Context/AuthContext.jsx';
+import ChatApp from './Pages/ChatBot.jsx';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route element={<PrivateRoute />}>
         <Route path="/journal" element={<AddJournal />} />
         <Route path="/account" element={<AccountPage />} />
+        <Route path="/chatbot" element={<ChatApp />} />
       </Route>
 
       {/* Public routes */}
