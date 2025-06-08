@@ -6,10 +6,6 @@ dotenv.config();
 const openai = new OpenAI({
   apiKey: process.env.API_KEY,
   baseURL: process.env.API_URL,
-  defaultHeaders: {
-    "HTTP-Referer": process.env.CORS_ORIGIN,
-    "X-Title": "Your App Name",
-  },
 });
 
 // This function sends a prompt to the OpenAI API and returns a text reply

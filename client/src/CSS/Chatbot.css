@@ -1,10 +1,3 @@
-/* Make body and root take full height */
-html, body, #root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 /* Make the main component (like ChatApp) take full height */
 :root {
   --pink: #ffb6c1;
@@ -21,12 +14,7 @@ h2 {
 body > * {
   display: flex;
   flex-direction: column;
-  /* background-image: image("C:/Users/Soumashree/Documents/MY_PROJECTS/mood-journal-app/mood-tracker/client/src/assets/AI-chatbot.webp"); */
-  /* height: 100%; */
-  /* background-image: url("C:/Users/Soumashree/Documents/MY_PROJECTS/mood-journal-app/mood-tracker/client/src/assets/AI-chatbot.webp");
-  background-size: cover;        
-  background-repeat: no-repeat;   
-  background-position: center; */
+  height: 100;
 }
 
 /* Chat box expands and scrolls */
