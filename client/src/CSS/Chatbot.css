@@ -168,14 +168,4 @@ h2 {
   align-self: flex-start;
 }
 
-/* Optional: for smaller screens */
-@media (max-width: 600px) {
-  .input-area input {
-    font-size: 14px;
-  }
 
-  .input-area button {
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-}
