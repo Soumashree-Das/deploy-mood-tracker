@@ -1,7 +1,6 @@
 import bgImage from "../assets/AI-chatbot.webp";
 import React, { useState } from "react";
 import axios from "axios";
-// import "../CSS/ChatBot.css";
 import "../CSS/Chatbot.css"
 const ChatApp = () => {
   const [messages, setMessages] = useState([]);
