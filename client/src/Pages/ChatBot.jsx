@@ -39,17 +39,18 @@ const ChatApp = () => {
             {msg.sender === "user" ? "You" : "Bot"}: {msg.text}
           </div>
         ))}
+        <div className="input-area">
+          <input
+            type="text"
+            placeholder="Type something..."
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+          />
+          <button onClick={sendMessage}>Send</button>
+        </div>
       </div>
-      <div className="input-area">
-        <input
-          type="text"
-          placeholder="Type something..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-        />
-        <button onClick={sendMessage}>Send</button>
-      </div>
+      
     </>
       
   );
