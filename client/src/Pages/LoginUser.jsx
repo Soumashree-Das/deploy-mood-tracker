@@ -18,11 +18,11 @@ function LoginUser() {
     setError('');
     
     try {
-      const response = await axios.post('https://deploy-mood-tracker.onrender.com/user/login', formData);
+      const response = await axios.post('http://localhost:8080/user/login', formData);
       
       // Use the login function from AuthContext
       login(response.data.token, response.data.user);
-      
+      axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
       navigate('/'); // Redirect to home/dashboard
     } catch (err) {
       console.error("Login failed:", err.response?.data || err.message);

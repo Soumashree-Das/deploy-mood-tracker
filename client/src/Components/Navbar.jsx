@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../Context/AuthContext.jsx';
+import Logout from './Logout.jsx';
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -19,12 +18,6 @@ function Navbar() {
     }, []);
 
 
-    const handleLogout = () => {
-        localStorage.removeItem('user');
-        localStorage.removeItem('token');
-        navigate('/login');
-    };
-
     
 
     const toggleMenu = () => {
@@ -32,7 +25,7 @@ function Navbar() {
     };
 
     return (
-        <nav className="bg-[#f0f6f6] shadow-sm border-b border-[#f7d6e0] font-borel">
+        <nav className="bg-[#ddf0f0] shadow-sm border-b border-[#f7d6e0] font-borel">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
@@ -92,14 +85,9 @@ function Navbar() {
                                             to="/chatbot" 
                                             className="text-[#42bfdd] hover:text-[#084b83] px-3 py-2 rounded-md text-sm font-medium transition-colors"
                                         >
-                                            Chatbot
+                                            ChatBot
                                         </Link>
-                                        <button 
-                                            onClick={handleLogout} 
-                                            className="bg-[#f0f6f6] hover:bg-[#bbe6e4] text-[#ff66b3] px-4 py-2 rounded-md text-sm font-medium transition-colors"
-                                        >
-                                            Logout
-                                        </button>
+                                        <Logout/>
                                     </>
                                 ) : (
                                     <Link 
@@ -142,22 +130,7 @@ function Navbar() {
                                 >
                                     Account
                                 </Link>
-                                <Link 
-                                    to="/chatbot" 
-                                    className="block px-3 py-2 rounded-md text-base font-medium text-[#42bfdd] hover:text-[#084b83] hover:bg-[#bbe6e4] transition-colors"
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    Chatbot 
-                                </Link>
-                                <button 
-                                    onClick={() => {
-                                        handleLogout();
-                                        setIsOpen(false);
-                                    }}
-                                    className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-[#42bfdd] hover:text-[#084b83] hover:bg-[#bbe6e4] transition-colors"
-                                >
-                                    Logout
-                                </button>
+                                <Logout/>
                             </>
                         ) : (
                             <Link 

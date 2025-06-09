@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Home() {
+  const isLoggedIn = !!localStorage.getItem('token');
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[100vh] bg-[url('./assets/beige-green-abstract-botanical-patterned-background-vector_53876-173863.avif')] bg-cover bg-no-repeat bg-center px-4 text-center">

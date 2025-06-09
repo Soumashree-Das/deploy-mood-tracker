@@ -1,3 +1,7 @@
+
+
+
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../CSS/AddJournal.css';
@@ -198,14 +202,14 @@ function AddJournal() {
     try {
       const token = localStorage.getItem('token');
       
-      const response = await axios.post('https://deploy-mood-tracker.onrender.com/journal/create', journalData, {
+      const response = await axios.post('http://localhost:8080/journal/create', journalData, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
         }
       });
 
-      // console.log('Journal entry saved:', response.data);
+      console.log('Journal entry saved:', response.data);
       alert('Journal entry saved successfully!');
       
       // Reset form

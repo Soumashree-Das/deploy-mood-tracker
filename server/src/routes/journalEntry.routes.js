@@ -5,8 +5,7 @@ import {
   getAllJournalEntries,
   editEntry,
   deleteEntry,
-  getMoodData,
-  getMoodFrequency
+  getMoodData
 } from "../controllers/journalEntry.controller.js";
 
 const router = Router();
@@ -15,7 +14,7 @@ const router = Router();
 router.post("/create", protect, createJournalEntry);
 
 // Get all journal entries for the logged-in user
-router.get("/entries", protect, getAllJournalEntries);
+router.get("/entries/:userId", getAllJournalEntries);
 
 // Edit a journal entry
 router.put("/entry/:id", protect, editEntry);
@@ -24,11 +23,7 @@ router.put("/entry/:id", protect, editEntry);
 router.delete("/entry/:id", protect, deleteEntry);
 
 // Get mood data for charts
-router.get("/mood-data", protect, getMoodData);
-
-// Get mood frequency data
-router.get("/mood-frequency", protect, getMoodFrequency);
-
+router.get("/mood-data/:userId", protect, getMoodData);
 
 export default router;
 
